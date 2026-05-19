@@ -7,18 +7,17 @@ import (
 	"log"
 	"os"
 
-	"fmt"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"fmt"
 )
 
 func main() {
 	godotenv.Load()
 
-	fmt.Println("GROQ KEY:", os.Getenv("GROQ_API_KEY"))
-	fmt.Println("GEMINI KEY:", os.Getenv("GEMINI_API_KEY"))
+fmt.Println("GROQ KEY:", os.Getenv("GROQ_API_KEY"))
+fmt.Println("GEMINI KEY:", os.Getenv("GEMINI_API_KEY"))
 
 	if os.Getenv("GROQ_API_KEY") == "" {
 		log.Fatal("GROQ_API_KEY not set")
@@ -29,7 +28,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"https://ai-chat-backend-df4p.onrender.com"},
+		AllowOrigins: []string{"https://ai-chat-frontend-iota.vercel.app/login"},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{"Content-Type", "Authorization"},
 	}))
